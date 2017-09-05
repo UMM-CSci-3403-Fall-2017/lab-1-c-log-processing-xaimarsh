@@ -1,1 +1,5 @@
 ([A-Z][\w]+)\s([0-9]+)\s([0-9]+):.*Failed\spassword.*[for\sinvalid\suser|for]\s(.*)\sfrom\s(.*)\sport
+
+For awk:
+Failed password for ([a-zA-z]*) from
+invalid user (.[A-Z|a-z]*)\s

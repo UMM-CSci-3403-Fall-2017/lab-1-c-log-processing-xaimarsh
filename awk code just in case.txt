@@ -1,0 +1,2 @@
+awk '/invalid user (.[A-Z|a-z]*)\s/ {print $1,$2,substr($3,0,2),$11} /Failed password for ([a-zA-z]*) from/ {print $1,$2,substr($3,0,2),$9}' secure
+
