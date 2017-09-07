@@ -1,7 +1,5 @@
-#!/usr/bin/bash
+wrappedtext=$1
+hfname=$2
+finalname=$3
 
-needWrap=$1
-desHeadFoot=$2
-resultFile=$3
-
-cat "$desHeadFoot"_header.html $needWrap "$desHeadFoot"_footer.html > $resultFile
+cat "$hfname"_header.html $wrappedtext "$hfname"_footer.html > $finalname
