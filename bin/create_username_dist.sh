@@ -1,4 +1,6 @@
+#!/bin/bash
 dir=$1
+$PATH="wrap_contents.sh"
 
 cd $dir
 
@@ -7,11 +9,12 @@ do
 	awk '{print $4}' /$f/failed_login_data.txt >> tempNames.txt
 done
 
-sort tempNames.txt
+sort tempNames.txt >> sortedTempNames.txt
 
-uniq -c tempNames.txt >> uniqNames.txt
+uniq -c sortedTempNames.txt >> uniqNames.txt
 
-awk '{print "data.addRow([\x27$2\x27, $1]);"}' >> toBeGiven.txt
+awk '{print "data.addRow([\x27"$2"\x27, "$1"]);"}' uniqNames.txt  >> toBeGiven.txt
 
-##maybe something with bin
-./wrap_contents.sh html_components/username_dist_header.html toBegiven.txt html_components_dist_footer.html
+## ~/CSCI3403/lab-1-c-log-processing-xaimarsh/bin/wrap_contents.sh toBeGiven.txt  html_components/username_dist username_dist.html
+
+##./wrap_contents.sh toBeGiven.txt  html_components/username_dist username_dist.html
