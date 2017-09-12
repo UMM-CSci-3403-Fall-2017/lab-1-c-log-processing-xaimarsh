@@ -10,7 +10,7 @@ done
 ##Sorts the tempHours.txt by hours of the day (ex. 1 before 9)
 sort tempHours.txt >> sortedTempHours.txt
 
-##Gets rid of any repeat data
+##Gets rid of any repeat data and counts occurences
 uniq -c sortedTempHours.txt >> uniqHours.txt
 
 ##Formats data to the liking of html
