@@ -2,9 +2,9 @@
 dir=$1
 
 ##for loop to retrieve data from failed_login_data.txt in each subdirectory of $dir
-for f in $dir/*
+for f in $dir/*/
 do
-	awk '{print $4}' $f/failed_login_data.txt >> tempNames.txt
+	awk '{print $4}' "$f"failed_login_data.txt >> tempNames.txt
 done
 
 ## sorts the data in tempNames.txt

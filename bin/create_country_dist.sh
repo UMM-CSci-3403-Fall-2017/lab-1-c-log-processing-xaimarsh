@@ -1,9 +1,9 @@
 dir=$1
 
 ##Loop to find all files in subdirectories of the $dir directory that contains failed_login_data.txt and prints the hour of the of the day in the created file tempIP.txt
-for f in $dir/*
+for f in $dir/*/
 do
-        awk '{print $5}' $f/failed_login_data.txt >> tempIP.txt
+        awk '{print $5}' "$f"failed_login_data.txt >> tempIP.txt
 done
 
 ##sort our ip so that we can utilize join

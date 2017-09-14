@@ -2,9 +2,9 @@
 dir=$1
 
 ##Loop to find all files in subdirectories of the $dir directory that contains failed_login_data.txt and prints the hour of the of the day in the created file tempHours.txt
-for f in $dir/*
+for f in $dir/*/
 do
-        awk '{print $3}' $f/failed_login_data.txt >> tempHours.txt
+        awk '{print $3}' "$f"failed_login_data.txt >> tempHours.txt
 done
 
 ##Sorts the tempHours.txt by hours of the day (ex. 1 before 9)
